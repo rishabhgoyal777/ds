@@ -18,18 +18,18 @@ reverse(head);
 c=head;
 if(c->data<9)
 {
-c->data=c->data+1;
+ c->data=c->data+1;
 }
 else
 {
-c->data=c->data+1;
-while(c->next!=NULL)
-{
-if(c->data==10)
-{
-c->data=0;
-c->next->data=c->next->data+1;
-c=c->next;
+ c->data=c->data+1;
+ while(c->next!=NULL)
+ {
+  if(c->data==10)
+ {
+ c->data=0;
+ c->next->data=c->next->data+1;
+ c=c->next;
 }
 else
 {
