@@ -1,3 +1,26 @@
+recursive
+======================
+Node* merge(Node* root1, Node* root2){
+    if(!root1)
+        return root2;
+    if(!root2)
+        return root1;
+
+    Node* result;
+
+    if(root1->data < root2->data){
+        result=root1;
+        result->next= merge(root1->next, root2);
+    }
+    else{
+        result=root2;
+        result->next= merge(root1, root2->next);
+    }
+    return result;
+}
+
+itterative
+=================
 Node* sortedMerge(Node* head_A, Node* head_B)
 {
     Node * p = head_A;
@@ -36,5 +59,4 @@ Node* sortedMerge(Node* head_A, Node* head_B)
     r->next=q;
 
     return n;
-
 }

@@ -1,42 +1,30 @@
-void reverse(Node *&h)
-{
-Node *b=NULL,*c=NULL;
-while(h)
-{
-c=b;
-b=h;
-h=h->next;
-b->next=c;
+Node* reverse(Node* head){
+    Node*p=head;
+    Node*q=NULL;
+    Node*r=NULL;
+    while(p){
+        r=q; q=p; p=p->next; q->next=r;
+    }
+    return q;
 }
-h=b;
+
+Node* addOne(Node *head){
+  Node* number = reverse(head);
+  Node* a=number;
+
+  if(a->data<9)
+    a->data=a->data+1;
+  else{
+      a->data=a->data+1;
+      while(a->next){
+          if(a->data==10){
+              a->data=0;
+              a->next->data++;
+              a=a->next;
+          }
+          else
+            break;
+      }
+  }
+  return reverse(number);
 }
-// o(n^2)  que mei
-Node *addOne(Node *head)
-{
-Node *c,*d;
-reverse(head);
-c=head;
-if(c->data<9)
-{
- c->data=c->data+1;
-}
-else
-{
- c->data=c->data+1;
- while(c->next!=NULL)
- {
-  if(c->data==10)
- {
- c->data=0;
- c->next->data=c->next->data+1;
- c=c->next;
-}
-else
-{
-break;
-}
-}
-}
-reverse(head);
-return head;
-};

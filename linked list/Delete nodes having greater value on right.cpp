@@ -1,19 +1,26 @@
+Node * reverse(Node* head){
+    Node* p,*q,*r;
+    p=head;
+    q=r=NULL;
+    while(p){
+        r=q; q=p; p=p->next;
+        q->next=r;
+    }
+    return q;
+}
+
 Node *compute(Node *head)
 {
-  Node *p = head;
-  Node *q = NULL;
-  Node *r = NULL;
-
-
-  while(p)
-  { r=q; q=p; p=p->next; q->next=r;}
-  head=q;
-  int max=q->data;
-  p=head->next;
- while(p)
- {if(p->data < max)
-  {q->next=p->next; p=p->next;
-  }
-  else {max=p->data; p=p->next; q=q->next;  } }
- return head;
+    Node* newh=reverse(head);
+    Node* a=newh;
+    while(a&&a->next){
+        if(a->next->data < a->data){
+            a->next=a->next->next;
+        }
+        else{
+            a=a->next;
+        }
     }
+    Node* ans=reverse(newh);
+    return ans;
+}

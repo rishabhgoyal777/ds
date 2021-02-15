@@ -35,16 +35,14 @@ Node * removeDuplicates( Node *top)
 
     while(top)
     {
-    if(s.find(top->data) == s.end()) //find funct returns an iterator to the element
+      if(s.find(top->data) == s.end()){ //find funct returns an iterator to the element
                                   // if found, else returns an iterator pointing
                                       //to the end of unordered_set.
-    {
         tail->next = top;
         tail = top;
         s.insert(top->data);
-        }
-
-        top = top->next;
+      }
+      top = top->next;
     }
 
     tail->next = NULL;

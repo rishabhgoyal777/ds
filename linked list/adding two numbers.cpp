@@ -1,54 +1,57 @@
+
+Node* reverse(Node* head, int &count){
+    Node* p;
+    Node*q;
+    Node*r;
+    p=head; q=r=NULL;
+    while(p){
+        r=q; q=p; p=p->next;
+        q->next=r; count++;
+    }
+    return q;
+}
+
 struct Node* addTwoLists(struct Node* first, struct Node* second)
-{ Node *p = first;
-  Node *q = NULL;
-  Node *r = NULL;
-  int count1=0;
-  int count2=0;
-  while(p)
-  {r=q; q=p; p=p->next; q->next=r; count1++;}
-  first=q;
+{   if(!first) return second;
+    if(!second) return first;
 
-  Node *a = second;
-  Node *b = NULL;
-  Node *c = NULL;
+    int count1=0, count2=0;
+    Node* fno=reverse(first,count1);
+    Node* sno=reverse(second,count2);
 
-  while(a)
-  {c=b; b=a; a=a->next; b->next=c; count2++;}
-  second=b;
-
-  if(count1>count2)
-    {a=b=first; p=second; }
-  else
-    {p=first; a=b=second;}
-
-  while(a&&p)
-  { a->data=a->data + p->data;
-
-    if(a->data >= 10 && a->next)
-      {a->data=a->data  % 10; a->next->data++; }
-
-    else if(a->data >= 10 && a->next==NULL)
-      {a->data=a->data  % 10; a->next = new Node(1);  }
-
-    a=a->next; p=p->next;}
-
-    while(a && a->data >=10)
-    {if(a->next)
-      {a->data=a->data  % 10; a->next->data++; }
-     else
-      {a->data=a->data  % 10; a->next = new Node(1);  }
-    a=a->next;
+    Node*a;
+    Node*b;
+    Node*z;
+    if(count1>count2){
+        a=b=fno; z=sno;
+    }
+    else{
+        z=fno; a=b=sno;
     }
 
-    p=b;
-    q=NULL; r=NULL;
-    while(p)
-    {r=q; q=p; p=p->next; q->next=r; count1++;}
+    while(a&&z){
+        a->data=a->data+z->data;
+        if(a->data >=10 && a->next){
+            a->data%=10; a->next->data++;
+        }
+        else if(a->data >=10 && !a->next){
+            a->data%=10; a->next = new Node(1);
+        }
+        a=a->next; z=z->next;
+    }
 
+    while(a && a->data >=10){
+        if(a->data >=10 && a->next){
+            a->data%=10; a->next->data++;
+        }
+        else if(a->data >=10 && !a->next){
+            a->data%=10; a->next = new Node(1);
+        }
+        a=a->next;
+    }
+    return reverse(b,count1);
 
-return q;
-  }
-
+}
 // Node* addSameSize(Node* head1, Node* head2, int* carry)
 // {
 // Node*temp;
