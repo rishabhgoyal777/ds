@@ -2,7 +2,7 @@ https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/
 
 arr[n] for elements of all stacks
 top[k]={-1,-1,-1,...} for top index of k stacks
-next[n]={i+1 % n } for next index in stack of every element in arr
+next[n]={i+1 % n } && next[n-1]= -1 for next index in stack of every element in arr
 int free=0  pointing free index for insertion in arr
 
 push(ele , sn)

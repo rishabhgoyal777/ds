@@ -1,78 +1,63 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-bool isoperand(char opr){
-    if(opr=='^' || opr=='*' || opr=='/' || opr=='+' || opr=='-' || opr=='(' )
-        return 0;
-    else return 1;
-}
-
-int outpre(char ope){
-    if(ope=='^')
-        return 6;
-    else if(ope=='*' || ope=='/')
-        return 3;
-    else if(ope=='+' || ope=='-')
+class Solution
+{
+    public:
+    bool isoperand(char a){
+        if(a=='+'|| a=='-'|| a=='*'|| a=='/'|| a=='^'|| a=='(')
+            return 0;
         return 1;
-    else if(ope=='(')
-        return 10;
+    }
 
-}
+    int outpre(char a){
+        if(a=='+' || a=='-')
+            return 1;
+        else if(a=='*' || a=='/')
+            return 3;
+        else if(a=='^')
+            return 6;
+        else if(a=='(')
+            return 10;
+    }
 
-int inpre(char ope){
-    if(ope=='^')
-        return 5;
-    else if(ope=='*' || ope=='/')
-        return 4;
-    else if(ope=='+' || ope=='-')
-        return 2;
-    else return 0;
-}
+    int inpre(char a){
+        if(a=='+' || a=='-')
+            return 2;
+        else if(a=='*' || a=='/')
+            return 4;
+        else if(a=='^')
+            return 5;
+        else
+            return 0;
+    }
 
-int main() {
-	int t;
-	cin>>t;
-	while(t--){
-	    stack<char> s;
-	    string infix;
-	    cin>>infix;
-	    string postfix="";
-	    int i=0,j=0;
-	    while(infix[i]!= '\0') {
-
-	        if(infix[i]==')' ){
-	            while(s.top()!='('){
-	                postfix+=s.top();
-	                s.pop();
-	               // if(s.empty())
-	               //     return  -1;
-	            } s.pop(); i++;
-	        }
-
-	        else if(isoperand(infix[i]))
-	            postfix+=infix[i++];
-
-
-	        else {
-	            if(s.empty() || (inpre(s.top()) < outpre(infix[i])))
-	                s.push(infix[i++]);
-	            else {
-	                 while (!s.empty()  && ( outpre(infix[i]) < inpre(s.top()) ) ){
-	                postfix+=s.top();
-	                s.pop();} s.push(infix[i++]);
-	            }
-	        }
-
-
+    string infixToPostfix(string e){
+        stack<char> s;
+        string postfix="";
+        for(int i=0;i<e.length();i++){
+            if(e[i]==')' ){
+                while(s.top()!='('){
+                    postfix=postfix+s.top();
+                    s.pop();
+                }s.pop();
             }
-
-	    while(!s.empty()){
-	    postfix+=s.top();
-	    s.pop(); }
-
-
-	   cout<<postfix;
-
-	    cout<<endl;}
-
-}
+            else if(isoperand(e[i])){
+                postfix+=e[i];
+            }
+            else{
+                if(s.empty() || outpre(e[i]) > inpre(s.top())){
+                    s.push(e[i]);
+                }
+                else{
+                    while(!s.empty() && outpre(e[i]) <= inpre(s.top())){
+                        postfix+=s.top();
+                        s.pop();
+                    } s.push(e[i]);
+                }
+            }
+        }
+        while(!s.empty()){
+            postfix+=s.top();
+            s.pop();
+        }
+        return postfix;
+    }
+};

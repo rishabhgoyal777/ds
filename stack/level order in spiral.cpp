@@ -27,5 +27,4 @@ vector<int> findSpiral(Node *root)
             }
     }
     return v;
-
 }

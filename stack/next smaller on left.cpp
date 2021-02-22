@@ -1,31 +1,28 @@
-#include <bits/stdc++.h>
-using namespace std;
+vector<long long> nextSmallerElement(vector<long long> arr, int n){
+  stack<long long int> s;
+  vector<long long int> v;
+  for(int i=0;i<n;i++){
+      if(s.empty()){
+          v.push_back(-1);
+          s.push(arr[i]);
+      }
+      else{
+          if(arr[i] <= s.top()){
+              while(!s.empty() && arr[i] <= s.top()){
+                  s.pop();
+              }
+              if(s.empty())
+               v.push_back(-1);
+              else
+               v.push_back(s.top());
 
-int main() {
-	int t;
-	cin>>t;
-	while(t--){
-	     stack <int> s;
-	     int n;
-	     cin>>n;
-	     int a[n];
-	     for(int i=0;i<n;i++)
-	     cin>>a[i];
-
-	     s.push(a[0]);
-	     cout<<-1<<" ";
-
-	     for(int i=1;i<n;i++){
-	         if(a[i]>s.top()){
-	             cout<<s.top()<<" "; s.push(a[i]);
-	         }
-	         else{
-	             while(!s.empty() && s.top()>=a[i]){
-	                 s.pop();
-	             }
-	             if(s.empty()){
-	                     cout<<-1<<" "; s.push(a[i]);
-	                 }
-	             else{cout<<s.top()<<" "; s.push(a[i]);}
-	         }
-	     }cout<<endl;}}
+           s.push(arr[i]);
+          }
+          else{
+              v.push_back(s.top());
+              s.push(arr[i]);
+          }
+      }
+  }
+  return v;
+}
