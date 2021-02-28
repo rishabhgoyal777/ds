@@ -1,8 +1,9 @@
-we have to create dll of leaf nodes and remove them fromm tree
+we have to create dll of leaf nodes and remove them fromm 
 
 Node* leaftodll(Node* root, Node* &head, Node* &tail){
   if(!root)
     return NULL;
+  
   if(!root->left && !root->right){
     if(!head){
       head=tail=root;
@@ -14,5 +15,16 @@ Node* leaftodll(Node* root, Node* &head, Node* &tail){
     }
     return NULL;                        //bec we have to remove them from tree
   }
-  leaftodll
+  
+  root->left= leaftodll(root->left,head,tail);
+  root->right= leaftodll(root->right,head,tail);
+  return root;
+}
+
+Node * convertToDLL(Node *root){
+    Node* head=NULL;
+    Node* tail=NULL;
+    leaftodll(root,head,tail);
+    return head;
+
 }
