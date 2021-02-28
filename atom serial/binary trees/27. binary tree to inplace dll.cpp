@@ -1,26 +1,29 @@
-Node* leaftodll(Node* root, Node* &head, Node* &tail){
-  if(!root)
-    return NULL;
-  if(!root->left && !root->right){
-    if(!head){
-      head=tail=root;
+class Solution
+{
+    public:   
+    
+    void leaftodll(Node* root, Node* &head, Node* &tail){
+       if(!root)
+       return;
+       leaftodll(root->left,head,tail);
+  
+       if(!head){
+          head=tail=root;
+       }
+       else{
+         root->left=tail;
+         tail->right=root;
+         tail=root;
+       }
+  
+       leaftodll(root->right,head,tail);
     }
-    else{
-      root->left=tail;
-      tail->right=root;
-      tail=root;
+
+    Node * bToDLL(Node *root)
+    {
+        Node* head=NULL;
+        Node* tail=NULL;
+        leaftodll(root,head,tail);
+        return head;
     }
-    return NULL;                        //bec we have to remove them from tree
-  }
-  root->left= leaftodll(root->left,head,tail);
-  root->right= leaftodll(root->right,head,tail);
-  return root;
-}
-
-Node * convertToDLL(Node *root){
-    Node* head=NULL;
-    Node* tail=NULL;
-    leaftodll(root,head,tail);
-    return head;
-
-}
+};
