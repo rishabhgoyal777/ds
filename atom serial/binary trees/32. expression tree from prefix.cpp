@@ -15,5 +15,7 @@ Node* expressiontree(string a,int &curr){
     root->right=expressiontree(a,curr);
     return root;
   }
-  else return root
+  else{curr++;
+       return root;
+  }
 }
