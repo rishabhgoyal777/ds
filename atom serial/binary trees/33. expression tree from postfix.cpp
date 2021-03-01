@@ -7,10 +7,12 @@ Node* expressiontree(string a, int &curr){
     return NULL;
   Node* root= new Node(a[curr]);
   if(a[curr]=='+' || a[curr]=='-' || a[curr]=='*' || a[curr]=='/' ){
-    curr++;
+    curr--;
     root->right=expressiontree(a,curr);
     root->left=expressiontree(a,curr);
     return root;
   }
-  else return root;
+  else{curr--;
+      return root;
+  }
 }
