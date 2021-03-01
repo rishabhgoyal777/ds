@@ -7,4 +7,5 @@ node* deserial(string s, int &curr){
   curr++;
   root->left=deserial(s,curr);
   root->right=deserial(s,curr);
+  return root;
 }
