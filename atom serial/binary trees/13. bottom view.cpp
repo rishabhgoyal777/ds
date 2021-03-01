@@ -1,4 +1,4 @@
-void topView(struct Node *root)
+void bottomView(struct Node *root)
 {
     map<int,int> m;
     queue<pair<Node*,int> > q;
