@@ -33,7 +33,7 @@ int height(node * root){
 void levelOrder(node* root){
   int h= height(root);
   for(int i=1;i<=h;i++)
-  printlevel(root,h);     // i=1 pe 1st level ka h=1 hoga to root data print hoga. uske bad i=2 pe root ka h=2 HOGA
+  printlevel(root,i);     // i=1 pe 1st level ka h=1 hoga to root data print hoga. uske bad i=2 pe root ka h=2 HOGA
                           // to agle level pe jayge aur uska h=h-1 yani 1 hoga to uska data pirnt HOGA
                           // similarly h=height pe last level
 }
