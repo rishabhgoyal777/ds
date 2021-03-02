@@ -10,6 +10,7 @@ void ksumUtil(node* root,int sum, int k, vector<int> &curr){
   }
   ksumUtil(root->left,sum,k,curr);
   ksumUtil(root->right,sum,k,curr);
+  curr.pop_back();
 }
 
 void ksum(node * root, int k){
