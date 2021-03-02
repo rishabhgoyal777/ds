@@ -1,4 +1,4 @@
-void ksumUtil(node* root,int sum, int k, vector<int> &curr, ){
+void ksumUtil(node* root,int sum, int k, vector<int> &curr){
   if(!root)
     return;
   sum+=root->data;
@@ -14,5 +14,5 @@ void ksumUtil(node* root,int sum, int k, vector<int> &curr, ){
 
 void ksum(node * root, int k){
   vector<int> v;
-  ksumUtil(root,sum,k,v);
+  ksumUtil(root,0,k,v);
 }
