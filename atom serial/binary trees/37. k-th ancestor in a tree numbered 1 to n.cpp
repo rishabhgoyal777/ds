@@ -3,7 +3,7 @@ create an array to store ancestor of every node element
 then arr[i] conatins ancestor of i and arr[arr[i]] has ancestor of arr[i] whenever counnt reaches k print that value of i
 
 void generatearr(Node* root, int ancestor[]){
-    arr[root->data]=-1;
+    ancestor[root->data]=-1;
     queue<Node*> q;
     q.push(root);
     while(!q.empty()){
