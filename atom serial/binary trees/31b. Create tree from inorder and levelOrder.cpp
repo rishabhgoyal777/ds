@@ -14,3 +14,28 @@ Root->left=func(newin1, newlo1)
 Root->right=func(newin2,newlo2)
 Return root
 
+
+Search func finds root->data in inorder arr
+Find func generates new inorder arr for left and right
+Side in the order in which elements coming in 
+levlorder. Can be done using set.
+
+unordered_set<int> s;
+
+    for (int i=iStart;i<index;i++)
+        s.insert(inorder[i]);
+
+    int lLevel[s.size()];  // Left 
+
+    int rLevel[iEnd-iStart-s.size()]; // Right
+
+    int li = 0, ri = 0;
+
+    for (int i=1;i<n;i++) {
+        if (s.find(levelOrder[i]) != s.end())
+            lLevel[li++] = levelOrder[i]; 
+        else
+            rLevel[ri++] = levelOrder[i];        
+    }
+
+    
