@@ -20,5 +20,5 @@ void pretopost(int arr[], int l, int h, vector<int> &v){
   int g=find(arr,l,h);
   pretopost(arr,l+1,g-1,v);  //LEFT      |-         =|
   pretopost(arr,g,h,v);     //RIGHT      | POSTORDER |
-  v.push_back(arr[h]);      //NODE       |_         _|
+  v.push_back(arr[l]);      //NODE       |_         _|
 }
