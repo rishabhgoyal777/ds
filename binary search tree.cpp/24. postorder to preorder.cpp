@@ -10,7 +10,7 @@ void posttopre(int arr[], int l, int h, vector<int> &v){
   if(l>h)
   return;
   int g=find(arr,l,h);
-  v.push_back(arr[l]);      //NODE       |_         _|
+  v.push_back(arr[h]);      //NODE       |_         _|
   posttopre(arr,l,g,v);  //LEFT      |- preorder =|
   posttopre(arr,g+1,h-1,v);     //RIGHT      |            |
 }
