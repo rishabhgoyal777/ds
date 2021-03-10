@@ -7,7 +7,7 @@ int find(int arr[], int l, int h){
 }
 
 void posttopre(int arr[], int l, int h, vector<int> &v){
-  if(l>r)
+  if(l>h)
   return;
   int g=find(arr,l,h);
   v.push_back(arr[l]);      //NODE       |_         _|
