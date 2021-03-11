@@ -10,7 +10,7 @@ int bstCount(int n){
   if(n==0 || n==1)
   return 1;
   int count=0;
-  for(int i=1;i<n;i++){
+  for(int i=1;i<=n;i++){
     count+= bstCount(i-1)*bstCount(n-i);
   }
   return count;
@@ -29,7 +29,7 @@ int bstCount(int n){
   if(dp[n] != -1)
   return dp[n];
   int count=0;
-  for(int i=1;i<n;i++){
+  for(int i=1;i<=n;i++){
     count+= bstCount(i-1)*bstCount(n-i);
   }
   return dp[n]=count;
