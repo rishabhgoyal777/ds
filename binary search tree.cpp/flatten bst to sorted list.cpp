@@ -1,15 +1,15 @@
 ek dummy node bnayi ek aur pointer le liya ussi pe temp nam ka for traversing. ab tree pe inorder ytraversal kiya aur node process krte time temp ka left null krte gye aur right pe tree ka node lgate gye jab tree khtam tab temp ke dono side null kyoki list khtam ho chuki hai. ab dummy ke next pe ek ponter le liya(start of sorted list) aur dummy delete kr diya.
 
 
-            a                                            a
+            a                                            d
           /   \                                           \
         b       c              ====>                        b
       /   \    /  \                                           \
-    d      e  f    g                                           c
+    d      e  f    g                                           e
                                                                 \
-                                                                  d
+                                                                  a
                                                                     \
-                                                                      e ...
+                                                                      c...
 
 void inorder(Node* root,Node* &temp){
   if(!root) return;
