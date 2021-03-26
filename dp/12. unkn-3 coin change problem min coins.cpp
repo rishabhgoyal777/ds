@@ -34,7 +34,7 @@ class Solution{
 	     else
 	        t[1][j]=-1;}
 
-	   for(int i=1;i<m+1;i++){
+	   for(int i=2;i<m+1;i++){
 	       for(int j=1;j<v+1;j++){
 	           if(arr[i-1] <= j)
 	           t[i][j]= min(1+t[i][j-arr[i-1]], t[i-1][j]);
