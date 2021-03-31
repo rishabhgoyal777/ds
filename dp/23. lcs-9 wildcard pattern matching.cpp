@@ -38,8 +38,7 @@ bool strmatch(char str[], char pattern[], int n, int m)
             if (pattern[j - 1] == '*')
                 lookup[i][j] = lookup[i][j - 1] || lookup[i - 1][j];
  
-            else if (pattern[j - 1] == '?'
-                     || str[i - 1] == pattern[j - 1])
+            else if (pattern[j - 1] == '?' || str[i - 1] == pattern[j - 1])
                 lookup[i][j] = lookup[i - 1][j - 1];
  
             else
