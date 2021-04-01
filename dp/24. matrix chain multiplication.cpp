@@ -17,7 +17,7 @@ int mcmUtil(int arr[], int i, int j){
 
   int ans=INT_MAX;
 
-  for(int k=i;k<=j-1;k++){
+  for(int k=i;k<=j-1;k++){ //k last index se ek piche kyoki k+1 nhi bche ga kuch agar k last index tk jayega to
     int temp = mcm(arr,i,k) + mcm(arr,k+1,j) + arr[i-1]*arr[k]*arr[j];
     ans=min(ans,temp);
   }
@@ -25,5 +25,5 @@ int mcmUtil(int arr[], int i, int j){
 }
  int mcm(int arr[]){
    int n= sizeof(arr)/sizeof(arr[0]);
-   return mcmUtil(arr,1,n-1);
+   return mcmUtil(arr,1,n-1);   //starting from 1 as Ai will show matrix having size arr[i-1]×arr[i]
  }
