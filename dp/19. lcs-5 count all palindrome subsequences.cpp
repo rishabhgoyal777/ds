@@ -1,4 +1,4 @@
-INCOMPLETE
+
 ========== https://leetcode.com/problems/count-different-palindromic-subsequences/submissions/
 
 int countPS(string str)
@@ -7,7 +7,7 @@ int countPS(string str)
 
     // create a 2D array to store the count of palindromic
     // subsequence
-    int cps[N + 1][N + 1];
+    int cps[N + 1][N + 1]; //i and j represent starting and end pointer of substring. Therefore at end we need to return when i=0 and j=n-1
 
     memset(cps, 0, sizeof(cps));
 
