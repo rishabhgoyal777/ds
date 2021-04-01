@@ -20,4 +20,24 @@ int lrs(int x, string s1){
     return t[x][x];
 }
 
-printing lrs INCOMPLETE
+printing lrs
+    string res = "";
+    int i = n, j = n;
+
+    while (i > 0 && j > 0)
+    {
+        if (dp[i][j] == dp[i-1][j-1] + 1)
+        {
+           res = res + str[i-1];
+           i--;
+           j--;
+        }
+
+        else if (dp[i][j] == dp[i-1][j])
+            i--;
+        else
+            j--;
+    }
+    reverse(res.begin(), res.end());
+    return res;
+}
