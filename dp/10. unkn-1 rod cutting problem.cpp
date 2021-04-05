@@ -1,3 +1,6 @@
+Cuts possible of length 1 to n with there value in val array
+S is length of rod
+
 int t[n+1][s+1];
 
 for(int i=0;i<n+1;i++){
