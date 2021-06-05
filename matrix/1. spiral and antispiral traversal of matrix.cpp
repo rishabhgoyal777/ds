@@ -29,3 +29,5 @@ vector<int> spirallyTraverse(vector<vector<int> > matrix, int n, int m)
     }
     return v;
     }
+
+for anti spiral use stack
