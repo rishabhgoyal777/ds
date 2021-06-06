@@ -9,7 +9,7 @@ int median(vector<vector<int>> &matrix, int n, int m){
             minele=min(minele,matrix[i][0]); //min element in mtrix
             maxele=max(maxele,matrix[i][m-1]); //max
         }
-        int median_position=(n*m+1)/2;  //ith position means, there shud be n-1 elements less than and n-1 elements greater than median in matrix.  
+        int elebeforemedian=(n*m)/2;  //ith position means, there shud be n-1 elements less than and n-1 elements greater than median in matrix.  
         
         int l=minele; int h=maxele; //this will be space for binary search
   
@@ -20,7 +20,7 @@ int median(vector<vector<int>> &matrix, int n, int m){
             for(int i=0;i<n;i++){ //for every row
                 count+=upper_bound(matrix[i].begin(), matrix[i].end(),mid)-matrix[i].begin();
             }
-            if(count < median_position) 
+            if(count <= elebeforemedian) 
                 l=mid+1;
             else
                 h=mid-1;
