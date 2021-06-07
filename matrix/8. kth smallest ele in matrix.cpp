@@ -28,3 +28,27 @@ int kthSmallest(int mat[MAX][MAX], int n, int k)
   }
   return res;
 }
+
+
+Time => O(nlogn)
+space => O{1)         binary search on space
+=================== 
+int kthSmallest(int mat[MAX][MAX], int n, int k)
+{
+    int l=mat[0][0];
+    int h=mat[n-1][n-1];
+    
+    while(l<=h){
+        int mid=(l+h)/2;
+        int elelessthan=0;
+        for(int i=0;i<n;i++){
+            elelessthan += upper_bound(mat[i], mat[i]+n,mid)-mat[i];
+        }
+        
+        if(elelessthan < k)
+            l=mid+1;
+        else
+            h=mid-1;
+    }
+    return l;
+}
