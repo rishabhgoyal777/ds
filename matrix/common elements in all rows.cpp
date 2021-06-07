@@ -1,3 +1,6 @@
+Time Compexity => O(n*m)
+  ============================
+
 vector<int> printCommonElements(int mat[n][m]){
   
   unordered_map<int, int> mp;
