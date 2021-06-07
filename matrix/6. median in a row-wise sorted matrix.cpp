@@ -9,7 +9,7 @@ int median(vector<vector<int>> &matrix, int n, int m){
             minele=min(minele,matrix[i][0]); //min element in mtrix
             maxele=max(maxele,matrix[i][m-1]); //max
         }
-        int elebeforemedian=(n*m)/2;  //ith position means, there shud be n-1 elements less than and n-1 elements greater than median in matrix.  
+        int elebeforemedian=(n*m)/2;  //i means, there shud be i-1 elements less than and i-1 elements greater than median in matrix.  
         
         int l=minele; int h=maxele; //this will be space for binary search
   
