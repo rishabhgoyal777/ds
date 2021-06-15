@@ -1,4 +1,4 @@
-Given a string S delete the characters which are appearing more than once consecutively.
+Given a string S delete the characters which are appearing more than once consecutively. aditya rajiv yt
 
   
     string removeConsecutiveCharacter(string s)
