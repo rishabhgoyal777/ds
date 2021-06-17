@@ -35,6 +35,7 @@ string findSubString(string str)
             }
         }
         
+    //if counter==count whne loop ends. therfor ssqueeze from left
         while(counter==count){
             if(j-i < minlen){
                 minlen=j-i;
