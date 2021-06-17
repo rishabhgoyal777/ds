@@ -18,18 +18,18 @@ string findSubString(string str)
         mp[str[i]]++;
         counter++;
         
-while(i<=j && j<str.length()){
+        while(i<=j && j<str.length()){
             if(counter<count){
-                if(mp[str[j]]==0) counter++;
+                if(mp[str[j]]==0) counter++; //new ele found
                 mp[str[j]]++;
                 j++;
             }
             else if(counter==count){
-                if(j-i < minlen){
+                if(j-i < minlen){ //if this window s=is min substr
                     minlen=j-i;
-                    index=i;
+                    index=i;  //stroing starting index
                 }
-                if(mp[str[i]]==1) counter--; 
+                if(mp[str[i]]==1) counter--; //if item being removed is present only once decrease counter
                 mp[str[i]]--;
                 i++;
             }
