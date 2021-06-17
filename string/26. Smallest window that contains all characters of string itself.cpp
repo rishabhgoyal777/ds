@@ -18,14 +18,17 @@ string findSubString(string str)
         mp[str[i]]++;
         counter++;
         
-        while(i<=j && j<str.length()){
+while(i<=j && j<str.length()){
             if(counter<count){
                 if(mp[str[j]]==0) counter++;
                 mp[str[j]]++;
                 j++;
             }
-            else{
-                minlen=min(minlen,j-i);
+            else if(counter==count){
+                if(j-i < minlen){
+                    minlen=j-i;
+                    index=i;
+                }
                 if(mp[str[i]]==1) counter--; 
                 mp[str[i]]--;
                 i++;
@@ -33,12 +36,14 @@ string findSubString(string str)
         }
         
         while(counter==count){
-            minlen=min(minlen,j-i);
+            if(j-i < minlen){
+                minlen=j-i;
+                index=i;
+            }
             if(mp[str[i]]==1) counter--;
             mp[str[i]]--;
             i++;
         }
-        // cout<<minlen<<endl;
-        return str.substr(i-1,minlen);
+        return str.substr(index,minlen);
         
     }
