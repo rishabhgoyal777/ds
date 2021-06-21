@@ -1,5 +1,6 @@
 Time complexity: O(n^2 log (k)) 
 Auxiliary Space : O(k) for min-heap and we can store the sum array in the array itself as it is of no use.
+	https://www.codingninjas.com/codestudio/problems/k-th-largest-sum-contiguous-subarray_920398?leftPanelTab=1
 
 // int arr= [10, -10, 20, -40]
 // =>
