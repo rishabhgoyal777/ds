@@ -1,3 +1,5 @@
+we get optimal ans when we add the 2 minimum ropes at any given point 
+
 long long minCost(long long arr[], long long n) {
         priority_queue<long long, vector<long long>, greater<long long> >minhp;
         for(int i=0;i<n;i++){
