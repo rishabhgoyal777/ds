@@ -1,3 +1,5 @@
+Time complexity of heapify is O(Logn). Time complexity of createAndBuildHeap() is O(n) and the overall time complexity of Heap Sort is O(nLogn).
+
 void heapify(int arr[], int i, int n){
   if(i>=n)
      return;
