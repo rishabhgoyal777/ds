@@ -18,3 +18,13 @@
             heapify(res,parent,n); //and call recursively for the child with which it has been swapped as parent is pointing to the greatest child
         }
     }
+
+
+    vector<int> heapification(vector<int> &res, int n) {
+        int i=n/2 - 1; //last non leaf node index
+        for(i;i>=0;i--){
+            heapify(res,i,n);
+        }
+        
+        return res;
+    }
