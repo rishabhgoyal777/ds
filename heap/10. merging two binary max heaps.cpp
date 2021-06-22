@@ -20,8 +20,6 @@ void heapify(vector<int> &res, int i, int n){
             swap(res[parent], res[i]); //swap
             heapify(res,parent,n); //and call recursively for the child with which it has been swapped as parent is pointing to the greatest child
         }
-        
-        
     }
     
     vector<int> mergeHeaps(vector<int> &a, vector<int> &b, int n, int m) {
