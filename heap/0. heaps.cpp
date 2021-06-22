@@ -1,6 +1,5 @@
 building heap from array
 =========================
-
 void heapify(vector<int> &res, int i, int n){
         if(i>=n)
             return;
@@ -22,12 +21,10 @@ void heapify(vector<int> &res, int i, int n){
         }
     }
 
-
     vector<int> heapification(vector<int> &res, int n) {
         int i=n/2 - 1; //last non leaf node index
         for(i;i>=0;i--){
             heapify(res,i,n);
-        }
-        
+        } 
         return res;
     }
