@@ -56,3 +56,15 @@ vector<vector<int>> merge(vector<vector<int>>& v) {
         cout<<v[i][0]<<v[i][1]<<" ";
     }
   }
+
+
+
+for(int i=1;i<v.size();i++){
+        if(v[index].second >= v[i].first ){
+	        v[index].second=max(v[index].second, v[i].second);
+	}
+	else{
+        	index++;
+		v[index]=v[i];
+	}
+}
