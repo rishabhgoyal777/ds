@@ -36,7 +36,7 @@ public:
     int findDuplicate(vector<int>& nums) {
         int n=nums.size();
         for(int i=0;i<n;i++){
-            nums[nums[i]%n]+= n;  // index pe jo element hai us index pe n plus krdiya // mod liya kyoki agr pehle se n plus kiya ho kabhi to original element hi mile
+            nums[nums[i]%n]+= n;  // index pe jo element hai us index pe n plus krdiya // mod liya kyoki agr pehle se n plus kiya ho kabhi to original index nhi mile
         }
 
         for(int i=0;i<n;i++){
