@@ -24,38 +24,40 @@ int trappingWater(int arr[], int n){
 Time Complexity: O(n)
 Auxiliary Space: O(1) 
 ==================================
-  
-int maxWater(int arr[], int n)
-{
-   
-    // indices to traverse the array
-    int left = 0;
-    int right = n-1;
-  
-    // To store Left max and right max
-    // for two pointers left and right
-    int l_max = 0;
-    int r_max = 0;
-  
-    int result = 0;
-    while (left <= right)
-    {
-      if(r_max <= l_max)
-      {
-        result += max(0, r_max-arr[right]);
+class Solution 
+{ public:
 
-        r_max = max(r_max, arr[right]);
+     int trap(vector<int>& height) {
 
-        right -= 1;
-      }
-      else
-      {
-        result += max(0, l_max-arr[left]);
+     int n= height.size();
 
-        l_max = max(l_max, arr[left]);
+     int left=0; int right=n-1;
 
-        left += 1;
-      }
-    }
-    return result;
-}
+     int res=0;
+
+     int maxleft=0, maxright=0;
+
+     while(left<=right) {
+
+       if(height[left]<=height[right]){
+
+          if(height[left]>=maxleft) 
+             maxleft=height[left]; 
+          else 
+             res+=maxleft-height[left];
+
+       left++;
+       } else{
+
+           if(height[right]>=maxright) 
+              maxright= height[right];
+           else 
+              res+=maxright-height[right];
+
+         right--;
+       }
+     }
+    return res;
+
+   }
+};
